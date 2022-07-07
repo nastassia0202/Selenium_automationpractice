@@ -1,7 +1,6 @@
 package tests;
 
 import core.ReadProperties;
-import core.listners.OpenCloseBrowserListener;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import services.LoginService;
