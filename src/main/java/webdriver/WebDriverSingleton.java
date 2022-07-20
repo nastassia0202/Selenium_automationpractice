@@ -56,5 +56,4 @@ public class WebDriverSingleton {
       Log.logInfoMessage("Unable to save screenshot", e);
     }
   }
-
 }
