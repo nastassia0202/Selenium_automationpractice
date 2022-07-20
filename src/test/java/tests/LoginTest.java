@@ -20,7 +20,8 @@ public class LoginTest {
   @Test
   public void successAuthorizationTest() {
     String welcomeMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
-    myAccountService = loginService.login(ReadProperties.getUsername(),
+    myAccountService = loginService.login(
+        ReadProperties.getUsername(),
         ReadProperties.getPassword());
     myAccountService.verifyMessage(welcomeMessage);
   }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="UI Test Suite">
+  <listeners>
+    <listener class-name="core.listners.TestListener"></listener>
+    <listener class-name="core.listners.OpenCloseBrowserListener"></listener>
+  </listeners>
+  <test name="All">
+    <classes>
+      <class name="tests.LoginTest"></class>
+    </classes>
+  </test>
+</suite>
