@@ -1,27 +1,28 @@
 package tests;
 
 import core.ReadProperties;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import services.LoginService;
 import services.MyAccountService;
 
-@Test
-public class LoginTest {
+public class LoginTest extends BaseTest {
 
-  MyAccountService myAccountService;
-  LoginService loginService;
-
-  @BeforeMethod
-  public void start() {
-    loginService = new LoginService();
-  }
+  protected MyAccountService myAccountService;
 
   @Test
   public void successAuthorizationTest() {
     String welcomeMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
     myAccountService = loginService.login(ReadProperties.getUsername(),
         ReadProperties.getPassword());
-    myAccountService.verifyMessage(welcomeMessage);
+    myAccountService.verifySuccessMessage(welcomeMessage);
+    myAccountService.logout();
+  }
+
+  @Test
+  public void failedAuthorizationTest() {
+    String errorMessage = "Authentication failed.";
+    myAccountService = loginService.login(ReadProperties.getUsername(),
+        "23545454545");
+    myAccountService.verifyErrorMessage(errorMessage);
+
   }
 }

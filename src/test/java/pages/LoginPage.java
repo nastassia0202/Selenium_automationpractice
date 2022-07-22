@@ -1,26 +1,26 @@
 package pages;
 
-import element.Element;
+import org.openqa.selenium.By;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends BasePage{
 
-  private final Element txtEmailAddress = Element.getById("email");
-  private final Element txtPassword = Element.getById("passwd");
-  private final Element btnSignIn = Element.getById("SubmitLogin");
-  private final Element btnForgotPassword = Element.getByXpath(
+  private final By txtEmailAddress = By.id("email");
+  private final By txtPassword = By.id("passwd");
+  private final By btnSignIn = By.id("SubmitLogin");
+  private final By btnForgotPassword = By.xpath(
       "//*[contains(text(), 'Forgot your password')]");
 
-  public LoginPage typeEmailAddress(String value) {
-    txtEmailAddress.type(value);
+  public LoginPage sendEmailAddress(String value) {
+    driver.findElement(txtEmailAddress).sendKeys(value);
     return this;
   }
 
-  public LoginPage typePassword(String value) {
-    txtPassword.type(value);
+  public LoginPage sendPassword(String value) {
+    driver.findElement(txtPassword).sendKeys(value);
     return this;
   }
 
   public void clickSignInButton() {
-    btnSignIn.click();
+    driver.findElement(btnSignIn).click();
   }
 }
